@@ -17,10 +17,10 @@ Type  = {
 
 model=pickle.load(open('House_Price.pkl','rb'))
 def predict(bedrooms,bathrooms,status,size,location,facing,Types):
-    Selected_location=Location[location]
-    Selected_status=Status[status]
-    Selected_facing=Facing[facing]
-    Selected_type=Type[Types]
+    Selected_location=int(location)
+    Selected_status=int(status)
+    Selected_facing=int(facing)
+    Selected_type=int(Types)
     user_input=np.array([[bedrooms,bathrooms,Selected_status,size,Selected_location,Selected_facing,Selected_type]])
     result=model.predict(user_input)[0].round(2)
     return result
